@@ -1,0 +1,31 @@
+@model database_for_concept_reports.Models.Concept
+
+<br>
+<b>Concept ID</b>
+<p>@Model.Id</p>
+
+<b>Concept Name</b>
+<p>@Model.Name</p>
+
+<b>DateCreated</b>
+<p>@Model.DateCreated</p>
+
+<b>Responsible Person</b>
+<p>@Model.ResponsiblePerson</p>
+
+<b>Group</b>
+<p>@Model.Group</p>
+
+<b>According to the rules</b>
+<p>@Model.AdhereToRules</p>
+
+<b>Explanation</b>
+<p>@Model.Explanation</p>
+
+<b>Discussion</b>
+<p>@Model.Discussion</p>
+
+<b>Conclusion</b>
+<p>@Model.Conclusion</p>
+
+<a asp-action="Edit" class="btn btn-default" asp-route-id="@Model.Id" id="Edit">Edit</a></td>
