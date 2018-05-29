@@ -1,0 +1,13 @@
+/Users/roman/Documents/Align Racing/database-for-concept-reports/bin/Debug/netcoreapp2.0/app.db
+/Users/roman/Documents/Align Racing/database-for-concept-reports/bin/Debug/netcoreapp2.0/database-for-concept-reports.deps.json
+/Users/roman/Documents/Align Racing/database-for-concept-reports/bin/Debug/netcoreapp2.0/database-for-concept-reports.runtimeconfig.json
+/Users/roman/Documents/Align Racing/database-for-concept-reports/bin/Debug/netcoreapp2.0/database-for-concept-reports.runtimeconfig.dev.json
+/Users/roman/Documents/Align Racing/database-for-concept-reports/bin/Debug/netcoreapp2.0/database-for-concept-reports.dll
+/Users/roman/Documents/Align Racing/database-for-concept-reports/bin/Debug/netcoreapp2.0/database-for-concept-reports.pdb
+/Users/roman/Documents/Align Racing/database-for-concept-reports/obj/Debug/netcoreapp2.0/database-for-concept-reports.csproj.CoreCompileInputs.cache
+/Users/roman/Documents/Align Racing/database-for-concept-reports/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/Users/roman/Documents/Align Racing/database-for-concept-reports/obj/Debug/netcoreapp2.0/database-for-concept-reports.AssemblyInfoInputs.cache
+/Users/roman/Documents/Align Racing/database-for-concept-reports/obj/Debug/netcoreapp2.0/database-for-concept-reports.AssemblyInfo.cs
+/Users/roman/Documents/Align Racing/database-for-concept-reports/obj/Debug/netcoreapp2.0/database-for-concept-reports.dll
+/Users/roman/Documents/Align Racing/database-for-concept-reports/obj/Debug/netcoreapp2.0/database-for-concept-reports.pdb
+/Users/roman/Documents/Align Racing/database-for-concept-reports/obj/Debug/netcoreapp2.0/database-for-concept-reports.csprojAssemblyReference.cache
