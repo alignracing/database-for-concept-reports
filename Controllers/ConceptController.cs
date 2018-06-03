@@ -1,5 +1,7 @@
+using System;
 using System.Linq;
 using database_for_concept_reports.Data;
+using database_for_concept_reports.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace database_for_concept_reports.Controllers
@@ -19,16 +21,45 @@ namespace database_for_concept_reports.Controllers
             return View(concepts.ToList());
         }
 
-        public IActionResult View(int? id)
+        public IActionResult View(int id)
         {
             var concept = _db.Concepts.FirstOrDefault(c => c.Id == id);
             
             return View(concept);
         }
 
+        [HttpGet]
         public IActionResult Edit(int? id)
         {
-            return View();
+            var concept = _db.Concepts.FirstOrDefault(c => c.Id == id);
+
+            if (concept == null)
+                throw new Exception("This concept does not exist");
+
+            return View(concept);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, Concept c)
+        {
+            var concept = _db.Concepts.FirstOrDefault(_c => _c.Id == id);
+
+            if (concept == null)
+            {
+                throw new Exception("This post does not exist");
+            }
+
+            concept.DateModified = DateTime.UtcNow;
+
+            concept.Name = c.Name;
+            concept.Explanation = c.Explanation;
+            concept.Discussion = c.Discussion;
+            concept.Conclusion = c.Conclusion;
+
+            _db.Update(concept);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

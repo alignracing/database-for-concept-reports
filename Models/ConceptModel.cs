@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace database_for_concept_reports.Models
@@ -27,24 +28,31 @@ namespace database_for_concept_reports.Models
 
         public int Id { get; set; }
 
-        [Required]
+        [DisplayName("Name")]
         public String Name { get; set; }
 
-        [Required]
+        [DisplayName("Responsible Person")]
         public int ResponsiblePerson { get; set; }
 
-        [Required]
+        [DisplayName("Group")]
         public int Group { get; set; }
 
-        [Required]
+        [DisplayName("Adhere To Rules")]
         public bool AdhereToRules { get; set; }
 
+        [DisplayName("Explanation")]
         public string Explanation { get; set; }
+
+        [DisplayName("Discussion")]
         public string Discussion { get; set; }
+
+        [DisplayName("Conclusion")]
         public string Conclusion { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime DateCreated { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime? DateModified { get; set; }
     }
 }

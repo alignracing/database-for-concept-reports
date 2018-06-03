@@ -1,1 +1,27 @@
-<p>Here comes the edit option for concept report</p>
+@model database_for_concept_reports.Models.Concept
+
+<form asp-action="Edit" asp-controller="Concept" method="POST">
+
+    <div class="form-group">
+        <br>
+        <label asp-for="Name" class="control-label">Name</label>
+        <input asp-for="Name" class="form-control" type="text" id="Name">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Explanation" class="control-label">Explanation</label>
+        <textarea asp-for="Explanation" class="form-control" rows="5" id="Explanation"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Discussion" class="control-label">Discussion</label>
+        <textarea asp-for="Discussion" class="form-control" rows="5" id="Discussion"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Conclusion" class="control-label">Conclusion</label>
+        <textarea asp-for="Conclusion" class="form-control" rows="5" id="Discussion"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-default" id="Submit">Submit</button>
+</form>
