@@ -10,7 +10,7 @@ namespace database_for_concept_reports.Models
 
         public Concept( string name,
                         int responsiblePerson,
-                        int group,
+                        int groupId,
                         bool adhereToRules,
                         string explanation,
                         string discussion,
@@ -18,7 +18,7 @@ namespace database_for_concept_reports.Models
         {
             Name = name;
             ResponsiblePerson = responsiblePerson;
-            Group = group;
+            GroupId = groupId;
             AdhereToRules = adhereToRules;
             Explanation = explanation;
             Discussion = discussion;
@@ -31,13 +31,15 @@ namespace database_for_concept_reports.Models
         [DisplayName("Name")]
         public String Name { get; set; }
 
-        [DisplayName("Responsible Person")]
+        [DisplayName("ResponsiblePerson")]
         public int ResponsiblePerson { get; set; }
 
-        [DisplayName("Group")]
-        public int Group { get; set; }
+        [DisplayName("GroupId")]
+        public int GroupId { get; set; }
 
-        [DisplayName("Adhere To Rules")]
+        public Group Group { get; set; }
+
+        [DisplayName("AdhereToRules")]
         public bool AdhereToRules { get; set; }
 
         [DisplayName("Explanation")]
@@ -54,5 +56,11 @@ namespace database_for_concept_reports.Models
 
         [DataType(DataType.Date)]
         public DateTime? DateModified { get; set; }
+
+        //public string Category { get; set; }
+
+        //public bool Active
+        //public book chosen
+        //add scoring category
     }
 }
