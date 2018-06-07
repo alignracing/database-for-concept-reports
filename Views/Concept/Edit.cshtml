@@ -2,17 +2,32 @@
 
 <form asp-action="Edit" asp-controller="Concept" method="POST">
 
+    <br>
     <div class="form-group">
-        <br>
         <label asp-for="Name" class="control-label">Name</label>
         <input asp-for="Name" class="form-control" type="text" id="Name">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ResponsiblePerson" class="control-label">Responsible Person</label>
+        <input asp-for="ResponsiblePerson" class="form-control" type="text" id="ResponsiblePerson">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GroupId" class="control-label">Grou Id</label>
+        <input asp-for="GroupId" class="form-control" type="text" id="GroupId">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AdhereToRules" class="control-label">According to the rules</label>
+        <input asp-for="AdhereToRules" class="form-control" type="text" id="AdhereToRules">
     </div>
 
     <div class="form-group">
         <label asp-for="Explanation" class="control-label">Explanation</label>
         <textarea asp-for="Explanation" class="form-control" rows="5" id="Explanation"></textarea>
     </div>
-
+    
     <div class="form-group">
         <label asp-for="Discussion" class="control-label">Discussion</label>
         <textarea asp-for="Discussion" class="form-control" rows="5" id="Discussion"></textarea>

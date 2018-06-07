@@ -7,20 +7,22 @@
 <b>Concept Name</b>
 <p>@Model.Name</p>
 
-<b>DateCreated</b>
+<b>Date Created</b>
 <p>@Model.DateCreated</p>
 
-<b>DateModified</b>
+<b>Date Modified</b>
 <p>@Model.DateModified</p>
 
 <b>Responsible Person</b>
 <p>@Model.ResponsiblePerson</p>
 
 <b>Group</b>
-<p>@Model.Group</p>
+<p>@Html.DisplayFor(model => model.Group.Name)</p>
 
 <b>According to the rules</b>
-<p>@Model.AdhereToRules</p>
+@if (@Model.AdhereToRules){
+    <p>Yes</p>
+    } else{<p>No</p>}
 
 <b>Explanation</b>
 <p>@Model.Explanation</p>
