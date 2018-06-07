@@ -20,7 +20,11 @@
 
     <div class="form-group">
         <label asp-for="AdhereToRules" class="control-label">According to the rules</label>
-        <input asp-for="AdhereToRules" class="form-control" type="text" id="AdhereToRules">
+        <select asp-for="AdhereToRules" class="form-control" id="Selector">
+            <option>Working on it</option>
+            <option>True</option>
+            <option>False</option>
+        </select>
     </div>
 
     <div class="form-group">
