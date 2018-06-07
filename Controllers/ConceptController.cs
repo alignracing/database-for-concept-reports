@@ -3,6 +3,7 @@ using System.Linq;
 using database_for_concept_reports.Data;
 using database_for_concept_reports.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace database_for_concept_reports.Controllers
 {
@@ -23,7 +24,7 @@ namespace database_for_concept_reports.Controllers
 
         public IActionResult View(int id)
         {
-            var concept = _db.Concepts.FirstOrDefault(c => c.Id == id);
+            var concept = _db.Concepts.Include(c => c.Group).FirstOrDefault(c => c.Id == id);
             
             return View(concept);
         }
@@ -52,6 +53,9 @@ namespace database_for_concept_reports.Controllers
             concept.DateModified = DateTime.UtcNow;
 
             concept.Name = c.Name;
+            concept.ResponsiblePerson = c.ResponsiblePerson;
+            concept.GroupId = c.GroupId;
+            concept.AdhereToRules = c.AdhereToRules;
             concept.Explanation = c.Explanation;
             concept.Discussion = c.Discussion;
             concept.Conclusion = c.Conclusion;
