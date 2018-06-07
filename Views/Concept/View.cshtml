@@ -19,10 +19,16 @@
 <b>Group</b>
 <p>@Html.DisplayFor(model => model.Group.Name)</p>
 
-<b>According to the rules</b>
-@if (@Model.AdhereToRules){
-    <p>Yes</p>
-    } else{<p>No</p>}
+<b>According to rules</b>
+@{
+    if (@Model.AdhereToRules != null) {
+        if (@Model.AdhereToRules.GetValueOrDefault()){
+            <p>Yes</p>
+        }
+        else {<p>No</p>}
+    }
+    else {<p>Working on it</p>}
+}
 
 <b>Explanation</b>
 <p>@Model.Explanation</p>

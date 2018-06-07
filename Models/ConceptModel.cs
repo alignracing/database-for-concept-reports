@@ -11,7 +11,6 @@ namespace database_for_concept_reports.Models
         public Concept( string name,
                         int responsiblePerson,
                         int groupId,
-                        bool adhereToRules,
                         string explanation,
                         string discussion,
                         string conclusion)
@@ -19,7 +18,6 @@ namespace database_for_concept_reports.Models
             Name = name;
             ResponsiblePerson = responsiblePerson;
             GroupId = groupId;
-            AdhereToRules = adhereToRules;
             Explanation = explanation;
             Discussion = discussion;
             Conclusion = conclusion;
@@ -40,7 +38,7 @@ namespace database_for_concept_reports.Models
         public Group Group { get; set; }
 
         [DisplayName("AdhereToRules")]
-        public bool AdhereToRules { get; set; }
+        public bool? AdhereToRules { get; set; }
 
         [DisplayName("Explanation")]
         public string Explanation { get; set; }
