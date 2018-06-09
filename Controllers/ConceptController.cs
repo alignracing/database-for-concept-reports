@@ -24,9 +24,34 @@ namespace database_for_concept_reports.Controllers
 
         public IActionResult View(int id)
         {
-            var concept = _db.Concepts.Include(c => c.Group).FirstOrDefault(c => c.Id == id);
+            var concept = _db.Concepts.Include(c => c.Group).Include(c => c.Category).FirstOrDefault(c => c.Id == id);
             
             return View(concept);
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(Concept concept)
+        {
+            var group = _db.Groups.FirstOrDefault(g => g.Id == concept.GroupId);
+            var category = _db.Categories.FirstOrDefault(c => c.Id == concept.CategoryId);
+            
+            concept.Group = group;
+            concept.Category = category;
+
+            //TODO: why does this not work from model constructor???
+            concept.DateCreated = DateTime.UtcNow;
+            concept.Active = true;
+
+            _db.Concepts.Add(concept);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

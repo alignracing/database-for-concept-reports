@@ -1,6 +1,11 @@
 @model database_for_concept_reports.Models.Concept
 
 <h2>@Model.Title @Model.Id</h2>
+
+<b>Status</b>
+@if (@Model.Active){
+    <p>Active</p>
+} else{<p>Closed</p>}
     
 <b>Date Created</b>
 <p>@Model.DateCreated</p>
@@ -15,6 +20,9 @@
 
 <b>Group</b>
 <p>@Html.DisplayFor(model => model.Group.Name)</p>
+
+<b>Category</b>
+<p>@Html.DisplayFor(model => model.Category.Name)</p>
 
 <b>Adheres to rules</b>
 @{

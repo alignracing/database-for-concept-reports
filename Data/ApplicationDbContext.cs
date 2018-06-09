@@ -21,6 +21,7 @@ namespace database_for_concept_reports.Data
         }
 
         public DbSet<Group> Groups { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Concept> Concepts { get; set; }
     }
 }

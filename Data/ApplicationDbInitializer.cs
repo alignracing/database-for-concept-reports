@@ -25,27 +25,45 @@ namespace database_for_concept_reports.Data
                 new Group("Suspension"),
                 new Group("Frame")});
 
+            dbContext.Categories.AddRange(new List<Category>{
+                new Category("Petrol"),
+                new Category("Disel"),
+                new Category("Other test category")});
+
             dbContext.SaveChanges();
 
             var groups = dbContext.Groups.ToList();
+            var categories = dbContext.Categories.ToList();
 
             string gibberish = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsumhas been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
             for (int i = 1; i <= 5; i++){
                 var concept = new Concept("Some concept report ", 12, groups[0].Id, gibberish, gibberish, gibberish);
                 concept.Group = groups[0];
+
+                concept.CategoryId = categories[0].Id;
+                concept.Category = categories[0];
+
                 dbContext.Concepts.Add(concept);
             }
 
             for (int i = 1; i <= 5; i++){
                 var concept = new Concept("Some concept report ", 12, groups[1].Id, gibberish, gibberish, gibberish);
                 concept.Group = groups[1];
+
+                concept.CategoryId = categories[1].Id;
+                concept.Category = categories[1];
+
                 dbContext.Concepts.Add(concept);
             }
 
             for (int i = 1; i <= 5; i++){
                 var concept = new Concept("Some concept report ", 12, groups[2].Id, gibberish, gibberish, gibberish);
                 concept.Group = groups[2];
+
+                concept.CategoryId = categories[2].Id;
+                concept.Category = categories[2];
+
                 dbContext.Concepts.Add(concept);
             }
 

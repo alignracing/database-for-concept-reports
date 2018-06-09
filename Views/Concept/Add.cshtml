@@ -1,0 +1,51 @@
+@model database_for_concept_reports.Models.Concept
+
+<form asp-action="Add" asp-controller="Concept" method="POST">
+
+    <br>
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Title</label>
+        <input asp-for="Title" class="form-control" type="text" id="Title">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ResponsiblePerson" class="control-label">Responsible Person</label>
+        <input asp-for="ResponsiblePerson" class="form-control" type="Text" id="ResponsiblePerson">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GroupId" class="control-label">Group</label>
+        <input asp-for="GroupId" class="form-control" type="text" id="GroupId">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId" class="control-label">Category</label>
+        <input asp-for="CategoryId" class="form-control" type="text" id="CategoryId">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AdheresToRules" class="control-label">Adheres to rules</label>
+        <select asp-for="AdheresToRules" class="form-control" id="Selector">
+            <option>Not set</option>
+            <option>True</option>
+            <option>False</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Explanation" class="control-label">Explanation</label>
+        <textarea asp-for="Explanation" class="form-control" rows="5" id="Explanation"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Discussion" class="control-label">Discussion</label>
+        <textarea asp-for="Discussion" class="form-control" rows="5" id="Discussion"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Conclusion" class="control-label">Conclusion</label>
+        <textarea asp-for="Conclusion" class="form-control" rows="5" id="Discussion"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-default" id="Submit">Save</button>
+</form>
