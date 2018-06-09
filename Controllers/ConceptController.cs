@@ -52,10 +52,10 @@ namespace database_for_concept_reports.Controllers
 
             concept.DateModified = DateTime.UtcNow;
 
-            concept.Name = c.Name;
+            concept.Title = c.Title;
             concept.ResponsiblePerson = c.ResponsiblePerson;
             concept.GroupId = c.GroupId;
-            concept.AdhereToRules = c.AdhereToRules;
+            concept.AdheresToRules = c.AdheresToRules;
             concept.Explanation = c.Explanation;
             concept.Discussion = c.Discussion;
             concept.Conclusion = c.Conclusion;

@@ -1,17 +1,14 @@
 @model database_for_concept_reports.Models.Concept
 
-<br>
-<b>Concept ID</b>
-<p>@Model.Id</p>
-
-<b>Concept Name</b>
-<p>@Model.Name</p>
-
+<h2>@Model.Title @Model.Id</h2>
+    
 <b>Date Created</b>
 <p>@Model.DateCreated</p>
 
-<b>Date Modified</b>
-<p>@Model.DateModified</p>
+@if (@Model.DateModified.HasValue) {
+    <b>Date Modified</b>
+    <p>@Model.DateModified</p>
+}
 
 <b>Responsible Person</b>
 <p>@Model.ResponsiblePerson</p>
@@ -19,15 +16,15 @@
 <b>Group</b>
 <p>@Html.DisplayFor(model => model.Group.Name)</p>
 
-<b>According to rules</b>
+<b>Adheres to rules</b>
 @{
-    if (@Model.AdhereToRules != null) {
-        if (@Model.AdhereToRules.GetValueOrDefault()){
+    if (@Model.AdheresToRules != null) {
+        if (@Model.AdheresToRules.GetValueOrDefault()) {
             <p>Yes</p>
         }
         else {<p>No</p>}
     }
-    else {<p>Working on it</p>}
+    else {<p>Not set</p>}
 }
 
 <b>Explanation</b>

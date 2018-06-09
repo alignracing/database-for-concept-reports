@@ -5,9 +5,9 @@
 
 <table class="table">
     <tr>
-        <th>Concept Id</th>
-        <th>Concept Name</th>
-        <th>Created</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Date created</th>
         <th>Action</th>
     </tr>
 
@@ -15,7 +15,7 @@
     {
         <tr>
             <td>@concept.Id</td>
-            <td>@concept.Name</td>
+            <td>@concept.Title</td>
             <td>@concept.DateCreated</td>
             <td><a asp-action="View" class="btn btn-default" asp-route-id="@concept.Id" id="View">View</a></td>
         </tr>

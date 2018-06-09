@@ -8,14 +8,14 @@ namespace database_for_concept_reports.Models
     {
         public Concept(){}
 
-        public Concept( string name,
+        public Concept( string title,
                         int responsiblePerson,
                         int groupId,
                         string explanation,
                         string discussion,
                         string conclusion)
         {
-            Name = name;
+            Title = title;
             ResponsiblePerson = responsiblePerson;
             GroupId = groupId;
             Explanation = explanation;
@@ -26,19 +26,16 @@ namespace database_for_concept_reports.Models
 
         public int Id { get; set; }
 
-        [DisplayName("Name")]
-        public String Name { get; set; }
+        public String Title { get; set; }
 
         [DisplayName("ResponsiblePerson")]
         public int ResponsiblePerson { get; set; }
 
-        [DisplayName("GroupId")]
         public int GroupId { get; set; }
 
         public Group Group { get; set; }
 
-        [DisplayName("AdhereToRules")]
-        public bool? AdhereToRules { get; set; }
+        public bool? AdheresToRules { get; set; }
 
         [DisplayName("Explanation")]
         public string Explanation { get; set; }
