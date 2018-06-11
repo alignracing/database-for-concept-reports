@@ -15,13 +15,26 @@ namespace database_for_concept_reports.Data
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            modelBuilder.Entity<ConceptTag>()
+            .HasKey(t => new { t.ConceptId, t.TagId });
+
+            modelBuilder.Entity<ConceptTag>()
+            .HasOne(pt => pt.Concept)
+            .WithMany(p => p.ConceptTags)
+            .HasForeignKey(pt => pt.ConceptId);
+
+            modelBuilder.Entity<ConceptTag>()
+            .HasOne(pt => pt.Tag)
+            .WithMany(t => t.ConceptTags)
+            .HasForeignKey(pt => pt.TagId);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Group> Groups { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
         public DbSet<Concept> Concepts { get; set; }
     }
 }

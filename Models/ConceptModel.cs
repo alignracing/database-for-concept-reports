@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -43,8 +44,7 @@ namespace database_for_concept_reports.Models
         public int GroupId { get; set; }
         public Group Group { get; set; }
     
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public ICollection<ConceptTag> ConceptTags  { get; } = new List<ConceptTag>();
 
         public bool? AdheresToRules { get; set; }
 

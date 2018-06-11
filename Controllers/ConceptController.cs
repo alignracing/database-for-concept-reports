@@ -24,7 +24,14 @@ namespace database_for_concept_reports.Controllers
 
         public IActionResult View(int id)
         {
-            var concept = _db.Concepts.Include(c => c.Group).Include(c => c.Category).FirstOrDefault(c => c.Id == id);
+            var concept = _db.Concepts
+            .Include(c => c.Group)
+            .Include(c => c.ConceptTags)
+            .ThenInclude(e => e.Tag)
+            .FirstOrDefault(c => c.Id == id);
+
+            var tags = concept.ConceptTags.ToList();
+            var tag1Name = tags[0].Tag.Name;
             
             return View(concept);
         }
@@ -39,10 +46,10 @@ namespace database_for_concept_reports.Controllers
         public IActionResult Add(Concept concept)
         {
             var group = _db.Groups.FirstOrDefault(g => g.Id == concept.GroupId);
-            var category = _db.Categories.FirstOrDefault(c => c.Id == concept.CategoryId);
+            
             
             concept.Group = group;
-            concept.Category = category;
+           
 
             //TODO: why does this not work from model constructor???
             concept.DateCreated = DateTime.UtcNow;
