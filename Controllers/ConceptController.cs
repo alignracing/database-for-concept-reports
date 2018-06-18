@@ -3,6 +3,7 @@ using System.Linq;
 using database_for_concept_reports.Data;
 using database_for_concept_reports.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace database_for_concept_reports.Controllers
@@ -30,9 +31,6 @@ namespace database_for_concept_reports.Controllers
             .ThenInclude(e => e.Tag)
             .FirstOrDefault(c => c.Id == id);
 
-            var tags = concept.ConceptTags.ToList();
-            var tag1Name = tags[0].Tag.Name;
-            
             return View(concept);
         }
 
@@ -69,6 +67,8 @@ namespace database_for_concept_reports.Controllers
             if (concept == null)
                 throw new Exception("This concept does not exist");
 
+            //TODO: this does not work!!!
+            ViewData["ConceptTags"] = new SelectList(_db.Concepts, "Id", "Id", _db.Tags);
             return View(concept);
         }
 

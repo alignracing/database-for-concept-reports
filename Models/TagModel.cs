@@ -10,11 +10,12 @@ namespace database_for_concept_reports
         public Tag(string name)
         {
             Name = name;
+            //TODO: Ask Abuy why???
+            //ConceptTags = new List<ConceptTag>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public ICollection<ConceptTag> ConceptTags  { get; } = new List<ConceptTag>();
+        public ICollection<ConceptTag> ConceptTags { get; set; }
     }
 }

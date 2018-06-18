@@ -21,7 +21,10 @@
 <b>Group</b>
 <p>@Html.DisplayFor(model => model.Group.Name)</p>
 
-<b>Tags</b>
+@if (@Model.ConceptTags != null){
+    <b>Tags</b>
+}
+
 @foreach (var tags in Model.ConceptTags) {
     <p>@Html.DisplayFor(modelTags => tags.Tag.Name)</p>
 }

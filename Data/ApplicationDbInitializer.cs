@@ -34,7 +34,7 @@ namespace database_for_concept_reports.Data
             var concepts = new List<Concept>();
 
             for (int i = 1; i <= 5; i++){
-                var concept = new Concept("Some concept report ", 12, groups[0].Id, gibberish, gibberish, gibberish);
+                var concept = new Concept("Concept report ", 12, gibberish, gibberish, gibberish);
                 concept.Group = groups[0];
                 concepts.Add(concept);
             }
@@ -50,13 +50,21 @@ namespace database_for_concept_reports.Data
             dbContext.Tags.AddRange(tags);
             dbContext.Concepts.AddRange(concepts);
 
-            dbContext.AddRange(
-                new ConceptTag { Concept = concepts[0], Tag = tags[0] },
-                new ConceptTag { Concept = concepts[0], Tag = tags[1] },
-                new ConceptTag { Concept = concepts[0], Tag = tags[2] },
-                new ConceptTag { Concept = concepts[3], Tag = tags[0] },
-                new ConceptTag { Concept = concepts[4], Tag = tags[0] }
-            );
+            // dbContext.AddRange(
+            //     new ConceptTag { Concept = concepts[0], Tag = tags[0] },
+            //     new ConceptTag { Concept = concepts[0], Tag = tags[1] },
+            //     new ConceptTag { Concept = concepts[0], Tag = tags[2] },
+            //     new ConceptTag { Concept = concepts[3], Tag = tags[0] },
+            //     new ConceptTag { Concept = concepts[4], Tag = tags[0] }
+            // );
+
+            var concepTags = new List<ConceptTag>();
+            concepTags.AddRange(new List<ConceptTag>{
+                new ConceptTag(concepts[0], tags[0]),
+                new ConceptTag(concepts[0], tags[1])
+            });
+
+            dbContext.AddRange(concepTags);
             
             dbContext.SaveChanges();
         }
