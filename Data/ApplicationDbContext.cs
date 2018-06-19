@@ -20,15 +20,15 @@ namespace database_for_concept_reports.Data
             modelBuilder.Entity<ConceptTag>()
             .HasKey(t => new { t.ConceptId, t.TagId });
 
-            modelBuilder.Entity<ConceptTag>()
-            .HasOne(pt => pt.Concept)
-            .WithMany(p => p.ConceptTags)
-            .HasForeignKey(pt => pt.ConceptId);
+            // modelBuilder.Entity<ConceptTag>()
+            // .HasOne(pt => pt.Concept)
+            // .WithMany(p => p.ConceptTags)
+            // .HasForeignKey(pt => pt.ConceptId);
 
-            modelBuilder.Entity<ConceptTag>()
-            .HasOne(pt => pt.Tag)
-            .WithMany(t => t.ConceptTags)
-            .HasForeignKey(pt => pt.TagId);
+            // modelBuilder.Entity<ConceptTag>()
+            // .HasOne(pt => pt.Tag)
+            // .WithMany(t => t.ConceptTags)
+            // .HasForeignKey(pt => pt.TagId);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -36,5 +36,6 @@ namespace database_for_concept_reports.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Concept> Concepts { get; set; }
+        public DbSet<ConceptTag> ConceptTags { get; set; }
     }
 }

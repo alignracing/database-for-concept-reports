@@ -18,6 +18,13 @@
         <input asp-for="GroupId" class="form-control" type="text" id="GroupId">
     </div>
 
+    @foreach (var tags in Model.ConceptTags) {
+        <span>
+            <input type="checkbox" class="checkbox" name="selectedTags" value="tags.Tag.Id" id="tags.Tag.Id" />
+            <label for="tags.Tag.Id">@tags.Tag.Name</label>
+        </span>
+    }
+
     <div class="form-group">
         <label asp-for="AdheresToRules" class="control-label">Adheres to rules</label>
         <select asp-for="AdheresToRules" class="form-control" id="SelectorRules">
@@ -25,11 +32,6 @@
             <option>True</option>
             <option>False</option>
         </select>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="ConceptTags" class="control-label">Tags</label>
-        <select asp-for="ConceptTags" class="form-control" id="SelectorTags" asp-items="ViewBag.ConceptTag"></select>
     </div>
 
     <div class="form-group">

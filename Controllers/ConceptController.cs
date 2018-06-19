@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using database_for_concept_reports.Data;
 using database_for_concept_reports.Models;
@@ -19,8 +20,8 @@ namespace database_for_concept_reports.Controllers
 
         public IActionResult Index()
         {
-            var concepts = _db.Concepts.OrderByDescending(c => c.Id);
-            return View(concepts.ToList());
+            var concepts = _db.Concepts.OrderByDescending(c => c.Id).ToList();
+            return View(concepts);
         }
 
         public IActionResult View(int id)
@@ -37,6 +38,7 @@ namespace database_for_concept_reports.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            //ViewBag.Starred = new List<string> { "Rock", "Jazz" };
             return View();
         }
 
@@ -62,13 +64,16 @@ namespace database_for_concept_reports.Controllers
         [HttpGet]
         public IActionResult Edit(int? id)
         {
-            var concept = _db.Concepts.FirstOrDefault(c => c.Id == id);
+            var concept = _db.Concepts
+            .Include(c => c.Group)
+            .Include(c => c.ConceptTags)
+            .ThenInclude(e => e.Tag)
+            .FirstOrDefault(c => c.Id == id);
 
             if (concept == null)
                 throw new Exception("This concept does not exist");
 
-            //TODO: this does not work!!!
-            ViewData["ConceptTags"] = new SelectList(_db.Concepts, "Id", "Id", _db.Tags);
+            
             return View(concept);
         }
 

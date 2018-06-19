@@ -21,13 +21,14 @@
 <b>Group</b>
 <p>@Html.DisplayFor(model => model.Group.Name)</p>
 
-@if (@Model.ConceptTags != null){
+@if (@Model.ConceptTags.Count > 0){
     <b>Tags</b>
+    @foreach (var tags in Model.ConceptTags) {
+        <br>@Html.DisplayFor(modelTags => tags.Tag.Name)
+    }
+    <p></p>
 }
 
-@foreach (var tags in Model.ConceptTags) {
-    <p>@Html.DisplayFor(modelTags => tags.Tag.Name)</p>
-}
 
 <b>Adheres to rules</b>
 @{

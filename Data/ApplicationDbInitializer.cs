@@ -42,9 +42,9 @@ namespace database_for_concept_reports.Data
             var tags = new List<Tag>();
             
             tags.AddRange(new List<Tag>{
-                new Tag("Tag 1"),
-                new Tag("Tag 2"),
-                new Tag("Tag 3")
+                new Tag("Petrol"),
+                new Tag("Important"),
+                new Tag("In progress")
             });
 
             dbContext.Tags.AddRange(tags);
@@ -61,7 +61,8 @@ namespace database_for_concept_reports.Data
             var concepTags = new List<ConceptTag>();
             concepTags.AddRange(new List<ConceptTag>{
                 new ConceptTag(concepts[0], tags[0]),
-                new ConceptTag(concepts[0], tags[1])
+                new ConceptTag(concepts[0], tags[1]),
+                new ConceptTag(concepts[0], tags[2])
             });
 
             dbContext.AddRange(concepTags);
